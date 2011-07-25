@@ -132,6 +132,7 @@
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
+				CommandLine="copy /Y &quot;$(ProjectDir)..\common\opensslconf.h&quot; &quot;$(ProjectDir)..\..\include\openssl\opensslconf.h&quot;&#x0D;&#x0A;copy /Y &quot;$(ProjectDir)..\common\applink.c&quot; &quot;$(ProjectDir)..\..\include\openssl\applink.c&quot;&#x0D;&#x0A;copy /Y &quot;$(ProjectDir)..\common\buildinf.h&quot; &quot;$(ProjectDir)..\..\crypto\buildinf.h&quot;&#x0D;&#x0A;copy /Y &quot;$(ProjectDir)..\common\libeay32_wince.def&quot; &quot;$(ProjectDir)..\..\libeay32_wince.def&quot;&#x0D;&#x0A;if not exist &quot;$(ProjectDir)..\..\include\openssl\e_os.h&quot; xcopy &quot;$(ProjectDir)..\common\include\*.*&quot; &quot;$(ProjectDir)..\..\include\openssl\&quot; /C /Y /S&#x0D;&#x0A;"
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
@@ -176,6 +177,7 @@
 				OutputFile="$(OutDir)/libeay32.dll"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories="&quot;..\..\wcelibcex\msvc80\STANDARDSDK_500 (ARMV4I)\Debug&quot;"
+				ModuleDefinitionFile="..\..\libeay32_wince.def"
 				DelayLoadDLLs="$(NOINHERIT)"
 				GenerateDebugInformation="true"
 				ProgramDatabaseFile="$(OutDir)/libeay32.pdb"
@@ -874,6 +876,7 @@
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
+				CommandLine="copy /Y &quot;$(ProjectDir)..\common\opensslconf.h&quot; &quot;$(ProjectDir)..\..\include\openssl\opensslconf.h&quot;&#x0D;&#x0A;copy /Y &quot;$(ProjectDir)..\common\applink.c&quot; &quot;$(ProjectDir)..\..\include\openssl\applink.c&quot;&#x0D;&#x0A;copy /Y &quot;$(ProjectDir)..\common\buildinf.h&quot; &quot;$(ProjectDir)..\..\crypto\buildinf.h&quot;&#x0D;&#x0A;copy /Y &quot;$(ProjectDir)..\common\libeay32_wince.def&quot; &quot;$(ProjectDir)..\..\libeay32_wince.def&quot;&#x0D;&#x0A;if not exist &quot;$(ProjectDir)..\..\include\openssl\e_os.h&quot; xcopy &quot;$(ProjectDir)..\common\include\*.*&quot; &quot;$(ProjectDir)..\..\include\openssl\&quot; /C /Y /S&#x0D;&#x0A;"
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
@@ -917,6 +920,7 @@
 				OutputFile="$(OutDir)/libeay32.dll"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="&quot;..\..\wcelibcex\msvc80\STANDARDSDK_500 (ARMV4I)\Release&quot;"
+				ModuleDefinitionFile="..\..\libeay32_wince.def"
 				DelayLoadDLLs="$(NOINHERIT)"
 				GenerateDebugInformation="true"
 				ProgramDatabaseFile="$(OutDir)/libeay32.pdb"
@@ -941,6 +945,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
+				CommandLine=""
 			/>
 			<DeploymentTool
 				ForceDirty="-1"
