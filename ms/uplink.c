@@ -56,8 +56,11 @@ void OPENSSL_Uplink (volatile void **table, int index)
 
 	if (applinktable==NULL)
 	{ void**(*applink)();
-
+#ifdef UNDER_CE
+	    applink=(void**(*)())GetProcAddressA(h,"OPENSSL_Applink");
+#else
 	    applink=(void**(*)())GetProcAddress(h,"OPENSSL_Applink");
+#endif
 	    if (applink==NULL)
 	    {	apphandle=(HMODULE)-1;
 		_tcscpy (msg+len,_T("no OPENSSL_Applink"));

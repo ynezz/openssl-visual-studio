@@ -243,7 +243,9 @@
 #endif
 
 #ifdef OPENSSL_SYS_MSDOS
+#ifndef UNDER_CE
 # include <conio.h>
+#endif
 #endif
 
 #ifdef OPENSSL_SYS_VMS

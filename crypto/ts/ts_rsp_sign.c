@@ -65,6 +65,7 @@
 #include <openssl/objects.h>
 #include <openssl/ts.h>
 #include <openssl/pkcs7.h>
+#include "e_os.h"
 
 /* Private function declarations. */
 

@@ -55,6 +55,7 @@
 
 #include <string.h>
 #include "ui_locl.h"
+#include "e_os.h"
 
 int UI_UTIL_read_pw_string(char *buf,int length,const char *prompt,int verify)
 	{

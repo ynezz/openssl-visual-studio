@@ -162,7 +162,7 @@ BIO *BIO_new_file(const char *filename, const char *mode)
 		file = fopen(filename,mode);
 		}
 #else
-	file=fopen(filename,mode);	
+	file=fopen(filename,mode);
 #endif
 	if (file == NULL)
 		{
@@ -322,11 +322,19 @@ static long MS_CALLBACK file_ctrl(BIO *b, int cmd, long num, void *ptr)
 #endif
 		{
 #if defined(OPENSSL_SYS_WINDOWS)
+#if defined(UNDER_CE)
+		FILE* fd = _fileno((FILE*)ptr);
+		if (num & BIO_FP_TEXT)
+			_setmode(fd,_O_TEXT);
+		else
+			_setmode(fd,_O_BINARY);
+#else
 		int fd = _fileno((FILE*)ptr);
 		if (num & BIO_FP_TEXT)
 			_setmode(fd,_O_TEXT);
 		else
 			_setmode(fd,_O_BINARY);
+#endif
 #elif defined(OPENSSL_SYS_NETWARE) && defined(NETWARE_CLIB)
 		int fd = fileno((FILE*)ptr);
 		/* Under CLib there are differences in file modes */

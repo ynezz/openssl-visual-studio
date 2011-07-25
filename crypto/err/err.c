@@ -118,6 +118,7 @@
 #include <openssl/buffer.h>
 #include <openssl/bio.h>
 #include <openssl/err.h>
+#include "e_os.h"
 
 DECLARE_LHASH_OF(ERR_STRING_DATA);
 DECLARE_LHASH_OF(ERR_STATE);

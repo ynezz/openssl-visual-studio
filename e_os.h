@@ -61,6 +61,22 @@
 
 #include <openssl/opensslconf.h>
 
+#ifdef UNDER_CE
+#include "wce_stdio.h"
+#include "wce_stdlib.h"
+#include "wce_time.h"
+#include "wce_string.h"
+#include "wce_sock.h"
+#define getenv wceex_getenv
+#define time wceex_time
+#define localtime wceex_localtime
+#define gmtime wceex_gmtime
+#define gettimeofday wceex_gettimeofday
+#define perror wceex_perror
+#define strerror wceex_strerror
+#define getservbyname wceex_getservbyname
+#endif
+
 #include <openssl/e_os2.h>
 /* <openssl/e_os2.h> contains what we can justify to make visible
  * to the outside; this file e_os.h is not part of the exported
@@ -307,7 +323,7 @@ static unsigned int _strlen31(const char *str)
 #      undef isupper
 #      undef isxdigit
 #    endif
-#    if defined(_MSC_VER) && !defined(_DLL) && defined(stdin)
+#    if defined(_MSC_VER) && !defined(UNDER_CE) && !defined(_DLL) && defined(stdin)
 #      if _MSC_VER>=1300
 #        undef stdin
 #        undef stdout

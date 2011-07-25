@@ -113,6 +113,7 @@
 #include <openssl/des.h>
 #include <openssl/ui.h>
 #include <openssl/crypto.h>
+#include "e_os.h"
 
 int DES_read_password(DES_cblock *key, const char *prompt, int verify)
 	{

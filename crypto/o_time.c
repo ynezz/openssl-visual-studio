@@ -62,6 +62,7 @@
 #include <openssl/e_os2.h>
 #include <string.h>
 #include "o_time.h"
+#include "e_os.h"
 
 #ifdef OPENSSL_SYS_VMS
 # include <libdtdef.h>

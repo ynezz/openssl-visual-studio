@@ -67,7 +67,11 @@
 #include <openssl/bio.h>
 
 #if defined(OPENSSL_SYS_WIN32) || defined(OPENSSL_SYS_VMS)
-#include <sys/timeb.h>
+#if defined(OPENSSL_SYS_WINCE)
+	#include <sys/time.h>
+#else
+	#include <sys/timeb.h>
+#endif
 #endif
 
 #ifdef OPENSSL_SYS_LINUX
@@ -814,7 +818,7 @@ int BIO_dgram_non_fatal_error(int err)
 
 static void get_current_time(struct timeval *t)
 	{
-#ifdef OPENSSL_SYS_WIN32
+#if (defined(OPENSSL_SYS_WIN32) && !defined(OPENSSL_SYS_WINCE))
 	struct _timeb tb;
 	_ftime(&tb);
 	t->tv_sec = (long)tb.time;
