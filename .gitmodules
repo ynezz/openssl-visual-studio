@@ -1,0 +1,3 @@
+[submodule "wcelibcex"]
+	path = wcelibcex
+	url = git@github.com:ynezz/wcelibcex.git
